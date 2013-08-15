@@ -1,0 +1,79 @@
+body {
+	font-family: "ff-meta-serif-web-pro";
+	color: rgb(60,60,60);
+	margin: 0 auto;
+	width: 50%;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+li > a {
+	text-decoration: underline;
+}
+
+img {
+	width: 40%;
+}
+
+#nav {
+	font-family: "source-sans-pro";
+	font-style: normal;        
+}
+
+#logo {
+	font-weight: 600;
+	font-size: 1.75em;
+	color: rgb(110,110,110);
+	margin-right: .5em;
+}
+
+#subdomain {
+	font-weight: 600;
+	font-size: 1.75em;
+	color: black;
+}
+
+#content {
+	margin-left: 1em;
+	padding-top: 1em;
+	border-top: 1px solid rgb(110,110,110);
+	width: 100%;
+}
+
+.image-caption {
+	font-size: .8em;
+	font-style: italic;
+}
+
+.nav-link {
+	font-weight: 400;
+	font-size: .9em;
+	margin-left: 1.0em;
+}
+
+.pipe {
+	font-weight: 400;
+	font-size: 1.0em;
+}
+
+.post-title {
+	font-family: "omnes-pro";
+	font-weight: 500;
+	font-size: 1.75em;
+	color: black;
+}
+
+.sub-heading {
+	font-family: "omnes-pro";
+	font-weight: 500;
+	font-size: 1.5em;
+	color: black;
+}
+.post-text {
+	font-family: serif;
+	font-weight: 400;
+	font-style: normal;
+}
