@@ -2,7 +2,7 @@ body {
 	font-family: "ff-meta-serif-web-pro";
 	color: rgb(60,60,60);
 	margin: 0 auto;
-	width: 50%;
+	width: 65%;
 }
 
 a {
@@ -15,7 +15,7 @@ li > a {
 }
 
 img {
-	width: 40%;
+	height: 300px;
 }
 
 #nav {
@@ -39,7 +39,6 @@ img {
 #content {
 	margin-left: 1em;
 	padding-top: 1em;
-	border-top: 1px solid rgb(110,110,110);
 	width: 100%;
 }
 
