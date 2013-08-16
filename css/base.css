@@ -11,10 +11,14 @@ a {
 
 ul {
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 li > a {
 	text-decoration: none;
+	margin: 2px;
+	padding 0;
 }
 
 img {
