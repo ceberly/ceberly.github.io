@@ -1,0 +1,348 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="/js/knob.js"></script>
+		<script src="/js/seqwww.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/seqwww.css">
+		<script>
+			$(document).ready(function() {
+				try {
+					window.AudioContext = window.AudioContext || window.webkitAudioContext;
+					var context = new AudioContext();
+
+					engine = new Engine(context);
+
+					sequence = [
+					{ what: DrumSound.BD, when: 1 },
+					{ what: DrumSound.OH, when: 1 },
+					{ what: DrumSound.CH, when: 2 },
+					{ what: DrumSound.CH, when: 3 },
+					{ what: DrumSound.CH, when: 4 },
+					{ what: DrumSound.SD, when: 5 },
+					{ what: DrumSound.CH, when: 6 },
+					{ what: DrumSound.CH, when: 7 },
+					{ what: DrumSound.CH, when: 8 },
+					{ what: DrumSound.BD, when: 9 },
+					{ what: DrumSound.OH, when: 9 },
+					{ what: DrumSound.CH, when: 10 },
+					{ what: DrumSound.CH, when: 11 },
+					{ what: DrumSound.CH, when: 12 },
+					{ what: DrumSound.SD, when: 13 },
+					{ what: DrumSound.CH, when: 14 },
+					{ what: DrumSound.CH, when: 15 },
+					{ what: DrumSound.CH, when: 16 },
+					{ what: DrumSound.BD, when: 17 },
+					{ what: DrumSound.OH, when: 17 },
+					{ what: DrumSound.CH, when: 18 },
+					{ what: DrumSound.CH, when: 19 },
+					{ what: DrumSound.CH, when: 20 },
+					{ what: DrumSound.SD, when: 21 },
+					{ what: DrumSound.CH, when: 22 },
+					{ what: DrumSound.CH, when: 23 },
+					{ what: DrumSound.CH, when: 24 },
+					{ what: DrumSound.BD, when: 25 },
+					{ what: DrumSound.OH, when: 25 },
+					{ what: DrumSound.CH, when: 26 },
+					{ what: DrumSound.CH, when: 27 },
+					{ what: DrumSound.CH, when: 28 },
+					{ what: DrumSound.SD, when: 29 },
+					{ what: DrumSound.CH, when: 30 },
+					{ what: DrumSound.CH, when: 31 },
+					{ what: DrumSound.CH, when: 32 },
+					];
+
+					polySequence = [
+					{ what: "D#", when: 1 },
+					{ what: "C", when: 1 },
+					{ what: "G#", when: 1 },
+					{ what: "D#", when: 17 },
+					{ what: "C", when: 17 },
+					{ what: "G", when: 17 },
+					];
+
+					bassSequence = [
+					{ what: "D#", when: 1 },
+					{ what: "C", when: 2 },
+					{ what: "G#", when: 3 },
+					{ what: "D#", when: 4 },
+					{ what: "C", when: 5 },
+					{ what: "G#", when: 6 },
+					{ what: "C", when: 7 },
+					{ what: "C", when: 8 },
+					{ what: "G#", when: 9 },
+					{ what: "D#", when: 10 },
+					{ what: "C", when: 11 },
+					{ what: "G#", when: 12 },
+					{ what: "D#", when: 13 },
+					{ what: "C", when: 14 },
+					{ what: "G#", when: 15 },
+					{ what: "G#", when: 16 },
+					{ what: "D#", when: 17 },
+					{ what: "C", when: 18 },
+					{ what: "G#", when: 19 },
+					{ what: "D#", when: 20 },
+					{ what: "C", when: 21 },
+					{ what: "G", when: 22 },
+					{ what: "D#", when: 23 },
+					{ what: "A#", when: 24 },
+					{ what: "G", when: 25 },
+					{ what: "G", when: 26 },
+					{ what: "G", when: 27 },
+					{ what: "G", when: 28 },
+					{ what: "F", when: 29 },
+					{ what: "D#", when: 30 },
+					{ what: "G", when: 31 },
+					{ what: "C", when: 32 },
+					];
+
+					engine.DrumMachine.LoadSequence(sequence);
+					engine.Poly.LoadSequence(polySequence);
+					engine.Bass.LoadSequence(bassSequence);
+
+					engine.Go();
+				}
+				catch(e) {
+					document.write("<h2>Sorry, web audio is not supported by this browser</h2>");
+					console.log(e.toString());
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<div id="instruments">
+			<div id="drummachine">
+				<table id="drummachine-controls">
+					<tr>
+						<td colspan="2" id="drummachine-name" style="text-align: right;">drum-78</td>
+					</tr>
+					<tr>
+						<td>bass</td>
+						<td>snare</td>
+					</tr>
+					<tr>
+						<td><input id="drummachine-bd-gain" type="text"></td>
+						<td><input id="drummachine-sd-gain" type="text"></td>
+					</tr>
+					<tr>
+						<td>closed hh</td>
+						<td>open hh</td>
+					</tr>
+					<tr>
+						<td><input id="drummachine-ch-gain" type="text"></td>
+						<td><input id="drummachine-oh-gain" type="text"></td>
+					</tr>
+				</table>
+				<table id="drummachine-sequencer">
+					<tr class="drummachine-lane" id="drummachine-sequencer-oh">
+						<td class="drummachine-sequencer-label">OH</td> 
+					</tr>
+					<tr class="drummachine-lane" id="drummachine-sequencer-ch">
+						<td class="drummachine-sequencer-label">CH</td> 
+					</tr>
+					<tr class="drummachine-lane" id="drummachine-sequencer-sd">
+						<td class="drummachine-sequencer-label">SD</td> 
+					</tr>
+
+					<tr class="drummachine-lane" id="drummachine-sequencer-bd">
+						<td class="drummachine-sequencer-label">BD</td> 
+					</tr>
+				</table>
+
+			</div>
+
+			<div id="poly">
+				<table id="poly-controls">
+					<tr>
+						<td colspan="2" id="poly-name" style="text-align: right;">blue planet</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>osc mix</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input id="poly-osc-mix" type="text"></td>
+					</tr>
+					<tr>
+						<td>attack</td>
+						<td>decay</td>
+					</tr>
+					<tr>
+						<td><input id="poly-env-attack" type="text"></td>
+						<td><input id="poly-env-decay" type="text"></td>
+					</tr>
+					<tr>
+						<td>sustain</td>
+						<td>release</td>
+					</tr>
+					<tr>
+						<td><input id="poly-env-sustain" type="text"></td>
+						<td><input id="poly-env-release" type="text"></td>
+					</tr>
+					<tr>
+						<td>cutoff</td>
+						<td>resonance</td>
+					</tr>
+					<tr>
+						<td><input id="poly-filter-freq" type="text"></td>
+						<td><input id="poly-filter-q" type="text"></td>
+					</tr>
+				</table>
+				<table id="poly-sequencer">
+					<tr class="poly-sequencer-lane" id="poly-lane-e2">
+						<td class="poly-sequencer-label">E&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-ds">
+						<td class="poly-sequencer-label">D#</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-d">
+						<td class="poly-sequencer-label">D&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-cs">
+						<td class="poly-sequencer-label">C#</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-c">
+						<td class="poly-sequencer-label">C&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-b">
+						<td class="poly-sequencer-label">B&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-as">
+						<td class="poly-sequencer-label">A#</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-a">
+						<td class="poly-sequencer-label">A&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-gs">
+						<td class="poly-sequencer-label">G#</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-g">
+						<td class="poly-sequencer-label">G&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-fs">
+						<td class="poly-sequencer-label">F#</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-f">
+						<td class="poly-sequencer-label">F&nbsp;</td>
+					</tr>
+					<tr class="poly-sequencer-lane" id="poly-lane-e">
+						<td class="poly-sequencer-label">E&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+			<div id="bass">
+				<table id="bass-controls">
+					<tr>
+						<td colspan="2" id="bass-name" style="text-align: right;">baseline</td>
+					</tr>
+					<tr>
+						<td>attack</td>
+						<td>decay</td>
+					</tr>
+					<tr>
+						<td><input id="bass-env-attack" type="text"></td>
+						<td><input id="bass-env-decay" type="text"></td>
+					</tr>
+					<tr>
+						<td>cutoff</td>
+						<td>resonance</td>
+					</tr>
+					<tr>
+						<td><input id="bass-filter-freq" type="text"></td>
+						<td><input id="bass-filter-q" type="text"></td>
+					</tr>
+				</table>
+				<table id="bass-sequencer">
+					<tr class="bass-sequencer-lane" id="bass-sequencer-lane-1"></tr>
+					<tr class="bass-sequencer-lane" id="bass-sequencer-lane-2"></tr>
+				</table>
+			</div>
+		</div>
+		<div id="master">
+			<table id="transport">
+				<tr>
+					<td colspan="2" style="text-align: right;">SEQ-WWW</td>
+				</tr>
+
+				<tr>
+					<td id="sequencer-start">PLAY</td>
+					<td id="sequencer-stop">STOP</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="font-size: .75em;">tempo</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input id="sequencer-tempo" type="text"></td>
+				</tr>
+
+			</table>
+			<table id="mix">
+				<tr>
+					<td><u>Mix</u></td>
+					<td><u>EQ</u></td>
+					<td><u>Compressor</u></td>
+				</tr>
+				<tr>
+					<td>drums</td>
+					<td>highpass</td>
+					<td>ratio</td>
+				</tr>
+				<tr>
+					<td><input id="drummachine-gain" type="text"></td>
+					<td><input id="master-eq-low" type="text"></td>
+					<td><input id="master-comp-ratio" type="text"></td>
+				</tr>
+				<tr>
+					<td>poly</td>
+					<td>midrange</td>
+					<td>attack</td>
+				</tr>
+				<tr>
+					<td><input id="poly-gain" type="text"></td>
+					<td><input id="master-eq-mid" type="text"></td>
+					<td><input id="master-comp-attack" type="text"></td>
+				</tr>
+				<tr>
+					<td>bass</td>
+					<td>lowpass</td>
+					<td>release</td>
+				</tr>
+				<tr>
+					<td><input id="bass-gain" type="text"></td>
+					<td><input id="master-eq-high" type="text"></td>
+					<td><input id="master-comp-release" type="text"></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>threshold</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td><input id="master-comp-threshold" type="text"></td>
+				</tr>
+			</table>
+			<br/>
+			<br/>
+			<br/>
+			<p>
+			SEQ-WWW was made by <a href="https://twitter.com/chriseberly" target="_blank">@chriseberly</a>
+			</p>
+			<p>
+			<a target="_blank" href="https://github.com/ceberly/seq-www/">https://github.com/ceberly/seq-www/</a>
+			</p>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-2259052-6', 'behindthecurve.net');
+	ga('send', 'pageview');
+</script>
+		</body>
+	</html>

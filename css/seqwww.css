@@ -1,0 +1,165 @@
+a {
+	text-decoration: none;
+	color: white;
+}
+
+p {
+	font-size: .75em;
+}
+
+body {
+	width: 95%;
+	height: 90%;
+	margin: auto;
+	color: black;
+	font-family: monospace;
+}
+
+#instruments {
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+#master {
+	float: right;
+	width: 20%;
+	height: 100%;
+	background-color: #002b36;
+	color: white;
+}
+
+#mix {
+	width: 100%;
+}
+
+#drummachine {
+	width: 100%;
+	height: 25%;
+	color: #b58900;
+	font-size: 1em;
+	background-color: #005064;
+}
+
+#drummachine-controls {
+	width: 20%;
+	height: 100%;
+	float: right;
+	color: white;
+	font-size: .75em;
+}
+
+#drummachine-sequencer {
+	float: left;
+	height: 100%;
+	width: 80%;
+}
+
+.drummachine-lane {
+	width: 100%;
+	color: orange;
+	font-size: 1.25em;
+}
+
+.drummachine-lane .note {
+	background-color: #fdf6e3;
+}
+
+#bass {
+	width: 100%;
+	height: 25%;
+	background-color: rgb(100,100,100);
+}
+
+#bass-controls {
+	color: pink;
+	width: 20%;
+	height: 100%;
+	float: right;
+	font-size: 1em;
+}
+
+#bass-sequencer {
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+.bass-sequencer-lane {
+	width: 100%;
+}
+
+#poly {
+	background-color: #268bd2;
+	color: white;
+	height: 50%;
+}
+
+#poly-controls {
+	font-size: .75em;
+	float: right;
+	width: 20%;
+	height: 100%;
+	color: white;
+}
+
+#poly-sequencer {
+	float: left;
+	width: 80%;
+	height: 100%;
+}
+
+.poly-sequencer-lane {
+	color: white;
+	width: 100%;
+	font-size: 1em;
+}
+
+.poly-sequencer-label {
+	font-size: 1.25em;
+}
+
+.poly-sequencer-lane .note {
+	background-color: rgb(200,200,200);
+}
+
+#transport {
+	font-size: 2em;
+	color: white;
+	height: 25%;
+	width: 100%;
+}
+
+#mix {
+	height: 50%;
+	font-size: 1em;
+	color: white;
+}
+
+#mix td {
+	vertical-align: bottom;
+}
+
+#sequencer-start {
+	color: rgb(200, 200, 200);	
+}
+
+#sequencer-stop {
+	color: rgb(250, 250, 250);
+}
+
+#sequencer-tempo {
+	font-size: .5em;
+}
+
+#poly-name {
+	font-size: 2em;
+}
+
+#bass-name {
+	font-size: 1.5em;
+}
+
+#drummachine-name {
+	font-size: 2em;
+}
