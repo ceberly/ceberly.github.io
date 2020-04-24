@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "About Me"
+date:   2020-04-24 09:29:20 -0400
+categories: update
+---
+
+The blog is back. More soon! If you're here, for now: [about me](/about).
